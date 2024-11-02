@@ -1,62 +1,69 @@
-$(document).ready(function() {
-    // Sticky navbar on scroll and scroll-up button visibility
-    $(window).on('scroll', function() {
-        if (this.scrollY > 20) {
+$(document).ready(function(){
+    $(window).scroll(function(){
+        // sticky navbar on scroll script
+        if(this.scrollY > 20){
             $('.navbar').addClass("sticky");
-        } else {
+        }else{
             $('.navbar').removeClass("sticky");
         }
-
-        if (this.scrollY > 500) {
+        
+        // scroll-up button show/hide script
+        if(this.scrollY > 500){
             $('.scroll-up-btn').addClass("show");
-        } else {
+        }else{
             $('.scroll-up-btn').removeClass("show");
         }
     });
 
-    // Slide-up button click event
-    $('.scroll-up-btn').click(function() {
-        $('html').animate({ scrollTop: 0 });
-        // Removing smooth scroll on slide-up button click
+    // slide-up script
+    $('.scroll-up-btn').click(function(){
+        $('html').animate({scrollTop: 0});
+        // removing smooth scroll on slide-up button click
         $('html').css("scrollBehavior", "auto");
     });
 
-    // Smooth scroll for menu items
-    $('.navbar .menu li a').click(function() {
+    $('.navbar .menu li a').click(function(){
+        // applying again smooth scroll on menu items click
         $('html').css("scrollBehavior", "smooth");
     });
 
-    // Toggle menu/navbar script
-    $('.menu-btn').click(function() {
+    // toggle menu/navbar script
+    $('.menu-btn').click(function(){
         $('.navbar .menu').toggleClass("active");
         $('.menu-btn i').toggleClass("active");
     });
 
-    // Typing text animation script
-    const typedOptions = {
+    // typing text animation script
+    var typed = new Typed(".typing", {
         strings: ["Web-Developer.", "trader."],
         typeSpeed: 80,
         backSpeed: 60,
         loop: true
-    };
-    new Typed(".typing", typedOptions);
+    });
 
-    // Owl carousel script
+    var typed = new Typed(".typing-2", {
+        strings: ["Web-Developer", "trader"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+    });
+
+    // owl carousel script
     $('.carousel').owlCarousel({
         margin: 20,
         loop: true,
-        autoplayTimeout: 2000,
+        autoplayTimeOut: 2000,
         autoplayHoverPause: true,
         responsive: {
-            0: {
+            0:{
                 items: 1,
                 nav: false
             },
-            600: {
+            600:{
                 items: 2,
                 nav: false
             },
-            1000: {
+            1000:{
                 items: 3,
                 nav: false
             }
